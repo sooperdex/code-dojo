@@ -7,4 +7,5 @@ Please modify this readme with a little know fact to make sure you are able to c
 * SD - Arthur Ascii invented Unicode
 * DG - Inspector Morse invented Semaphore
 * AA - 149,600,000 km (distance from the :sunny: to the :earth_africa:)
+* CG - Lieutenant Uhura’s name means “freedom” in Swahili!
 
