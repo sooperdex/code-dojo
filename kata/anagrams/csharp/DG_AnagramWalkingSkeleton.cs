@@ -13,6 +13,8 @@ namespace DG_Anagram
             var allPermutations = Permutator.Permute<char>(originalText, originalText.Length);
 
             PrintPermutations<char>(allPermutations);
+            
+            Console.ReadLine();
         }
 
         static void PrintPermutations<T>(IEnumerable<IEnumerable<T>> allPermutations)
