@@ -6,51 +6,20 @@ using System.Threading.Tasks;
 
 namespace Anagrams
 {
-    class AnagramProcessor
+    public class AnagramProcessor
     {
-        char[] anagramScramble;
-        List<string> anagramDictionary = new List<string>();
-
-        public void ProcessString(string inputString)
+        public  IEnumerable<string> GenerateAnagram(string anagramString)
         {
-            int arrayLength;
+            if (anagramString.Length == 0) yield break;
+            if (anagramString.Length == 1) yield return anagramString;
 
-            anagramScramble = inputString.ToArray();
-            arrayLength = anagramScramble.Length;
-
-            for (int i = 0; i < arrayLength - 1; i++)
+            foreach (string rest in GenerateAnagram(anagramString.Substring(1)))
             {
-                ShiftArray(anagramScramble, arrayLength);
-            }
-
-            ShowDictionary();
-        }
-
-        void ShiftArray(char[] baseAnagram, int baseLength)
-        {
-            char[] amendedAnagram = new char[baseLength + 1];
-            char[] tempAnagram = new char[baseLength + 1];
-
-            for (int si = 0; si < baseLength; si++)
-            {
-                Array.Copy(baseAnagram, tempAnagram, baseLength);
-                Array.Copy(tempAnagram, si, amendedAnagram, si + 1, 1);
-            }
-
-            Array.Copy(amendedAnagram, baseLength, amendedAnagram, 0, 1);
-            Array.Resize(ref amendedAnagram, baseLength);
-
-            string shiftedAnagram = new string(amendedAnagram);
-            anagramDictionary.Add(shiftedAnagram.ToString());
-
-            anagramScramble = amendedAnagram;
-        }
-
-        void ShowDictionary()
-        {
-            foreach (string word in anagramDictionary)
-            {
-                Console.WriteLine(word);
+                for (int i = 0; i < anagramString.Length; i++)
+                {
+                    string temp = rest.Substring(0, i) + anagramString[0] + rest.Substring(i);
+                    yield return temp;
+                }
             }
         }
     }
