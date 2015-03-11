@@ -3,20 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Anagrams
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string input;
-            AnagramProcessor anagram = new AnagramProcessor();
+            
+            Console.WriteLine("Please Enter a String: ");
+            string input = Console.ReadLine();
 
-            Console.WriteLine("Enter String: ");
-            input = Console.ReadLine();
+            AnagramProcessor anagramBuilder = new AnagramProcessor();
+            IEnumerable<string> results = anagramBuilder.GenerateAnagram(input);
+                
+            OutputList(results);
+        }
 
-            anagram.ProcessString(input);
+        static void OutputList(IEnumerable<string> list)
+        {
+            foreach (string item in list)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
