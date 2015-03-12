@@ -1,0 +1,13 @@
+## Travis CI Integration
+
+language: csharp
+## solution: kata/csharp/codedojo.sln
+
+## install:
+##  - nuget restore kata/csharp/codedojo.sln
+##  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+
+## script:
+##  - xbuild /p:Configuration=Release kata/csharp/codedojo.sln
+##  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.exe ./kata/csharp/anagrams/AG/bin/Release/AG_Anagrams.dll
+##  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.exe ./kata/csharp/anagrams/DG/bin/Release/DG_Anagrams.dll
